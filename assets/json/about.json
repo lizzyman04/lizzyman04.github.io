@@ -1,0 +1,76 @@
+{
+    "introducing": {
+        "name": "Arlindo Abdul",
+        "date_of_birth": "2005-04-23",
+        "place_of_birth": "Cidade de Nampula, MZ",
+        "email": "admin@tudocomlizzyman.com",
+        "presentation": "Prazer, Arlindo. Eu faço coisas!",
+        "resume": "Sou uma pessoa versátil, com uma paixão pela escrita, arte e tecnologia. Possuo experiência em redacção de blogs, estratégias de SEO e produção de conteúdos audiovisuais. Sou especializado em explicar conceitos de análise matemática, estatística, probabilidade, mecânica física e TI. Estou imerso no universo da programação, aprimorando minhas habilidades de imaginar e propor soluções para problemas simples e complexos através de linguagens e ferramentas poderosas. Acredito no poder da educação e do compartilhamento de ideias para transformar vidas. Busco inspirar outros a seguir seus sonhos e alcançar o sucesso.",
+        "cv_link": "#"
+    },
+    "abilities": {},
+    "education": {},
+    "experience": {},
+    "skills": {
+        "Domínios": {
+            "Matemática e Estatística": "94%",
+            "Física, Redes e Telecomunicação": "86%",
+            "Clean Code (Código Limpo)": "70%",
+            "Gestão, Marketing e SEO": "84%"
+        },
+        "Idiomas": {
+            "Português (Nativo)": "82%",
+            "Inglês": "56%",
+            "Francês": "28%",
+            "Macua (Materno)": "42%"
+        },
+        "Ferramentas de Comunicação": {
+            "Slack": "88%",
+            "Google Suite": "76%",
+            "Microsoft 365": "94%",
+            "Discord": "48%"
+        },
+        "Linguagens de Programação": {
+            "HTML5/CSS3": "92%",
+            "JavaScript": "78%",
+            "Java": "72%",
+            "C": "26%",
+            "Python": "66%",
+            "PHP": "54%",
+            "Ruby": "26%",
+            "SQL": "86%"
+        },
+        "Frameworks e Bibliotecas": {
+            "Node.js": "72%",
+            "Bootstrap": "52%",
+            "JQuery": "80%",
+            "React.js": "54%",
+            "Jekyll": "76%",
+            "Tailwind": "48%",
+            "npm/YarnPkg": "88%",
+            "Composer.php": "32%"
+        },
+        "Ferramentas de Design": {
+            "Figma": "62%",
+            "Adobe XD": "34%",
+            "Canva": "84%",
+            "Draw.io": "54%"
+        },
+        "Ferramentas de Desenvolvedor": {
+            "Visual Studio Code": "90%",
+            "Apache Netbeans": "74%",
+            "IntelliJ IDEA": "52%",
+            "MySQL Workbench": "82%",
+            "Git & GitHub": "74%",
+            "Chrome DevTools": "88%",
+            "Xampp/Wamp": "76%",
+            "Android Studio": "38%"
+        },
+        "Banco de Dados": {
+            "MySQL": "86%",
+            "PostgreSQL": "60%",
+            "Firebase": "58%",
+            "MongoDB": "54%"
+        }
+    }
+}

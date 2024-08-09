@@ -14,6 +14,7 @@
     --rich-black-color: #020202;
     --section-alt-color: #04a777;
     --white-color: #fff;
+    --lucky-grey-color: #777;
 
     --cursor-32: url('../img/cursor-32.svg') 32 0, auto;
 }
@@ -40,13 +41,14 @@ html {
 }
 
 ::-webkit-scrollbar {
-    width: 4px;
-    color: var(--scroll-color);
+    width: 6px;
+    color: var(--section-alt-color);
     transition: all .4s ease;
+    z-index: 4;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--scroll-color);
+    background: var(--section-alt-color);
     border-radius: 4px;
     width: 4px;
     transition: all .4s ease;
@@ -78,9 +80,13 @@ input::-webkit-inner-spin-button {
     flex-direction: column;
     z-index: 999;
     background: var(--bg-color);
+    transform-origin: top;
+    perspective: 1000px;
+    transform-style: preserve-3d;
 }
 
 .loader.DOMContentLoaded {
+    opacity: 0;
     display: none;
 }
 
@@ -143,11 +149,19 @@ input::-webkit-inner-spin-button {
     }
 }
 
-.loader .message {
+.loader .welcome-m {
     font-size: 24px;
     color: var(--white-color);
     opacity: 0;
     margin-top: 20px;
+    animation: welcome_m 0.5s forwards;
+    animation-delay: 1s;
+}
+
+@keyframes welcome_m {
+    to {
+        opacity: 1;
+    }
 }
 
 /* header (navigation) */
@@ -615,13 +629,13 @@ section.hero {
     display: none;
     height: auto;
     overflow-x: hidden;
-    background-color: #101010;
+    background-color: var(--darkness-color);
     width: 100%;
     color: var(--whitesmoke-color);
 }
 
 .me-section .section-heading {
-    margin: 84px auto;
+    margin: 84px auto 48px;
     text-align: center;
     font-family: 'Raleway', sans-serif;
 }
@@ -681,7 +695,7 @@ section.hero {
     animation-iteration-count: infinite;
     animation-name: section_bar_animated;
     animation-timing-function: linear;
-    background-color: #101010;
+    background-color: var(--darkness-color);
     content: '';
     height: 100%;
     position: absolute;

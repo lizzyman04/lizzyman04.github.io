@@ -13,14 +13,15 @@
     <link rel="apple-touch-icon" href="./assets/img/favicon.ico">
 
     <!-- STYLESHEET -->
-    <link rel="stylesheet" href="./assets/css/main.css">
     <link rel="stylesheet" href="./assets/css/icons.css">
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="./assets/css/s.css">
 
     <!-- FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&family=Monoton&family=Poppins:wght@500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&family=Monoton&family=Poppins:wght@300;400;500&display=swap"
         rel="stylesheet">
 
     <!-- SCRIPTS -->
@@ -39,7 +40,7 @@
             <div class="circle"></div>
             <div class="circle"></div>
         </div>
-        <div class="message">É sua primeira vez aqui?</div>
+        <div class="welcome-m">É sua primeira vez aqui?</div>
     </div>
 
     <!-- Header -->
@@ -52,10 +53,10 @@
     </header>
 
     <div class="header">
-        <div class="logo">
+        <div class="logo back-to-home">
             <img src="./assets/img/favicon.ico" alt="">
         </div>
-        <div class="x-bar">
+        <div class="x-bar back-to-home">
             <span class="x-first-span"></span>
             <span class="x-second-span"></span>
         </div>
@@ -119,7 +120,75 @@
                 <p class="section-description">Get to know me</p>
                 <div class="animated-bar"></div>
             </div>
-            <div class="section-inner"></div>
+            <div class="section-inner">
+                <div class="introducing-container">
+                    <div class="introducing-img">
+                        <picture>
+                            <source srcset="./assets/img/introducing-myself.webp" type="image/webp">
+                            <img src="./assets/img/introducing-myself.webp" alt="">
+                        </picture>
+                    </div>
+                    <div class="introducing-content">
+                        <h2 class="content-subtitle">Quem sou eu?</h2>
+                        <h6 class="content-title" id="json-introducing-presentation">Prazer, Arlindo. Eu faço coisas!
+                        </h6>
+                        <div class="resume-d">
+                            <p id="json-introducing-resume"></p>
+                        </div>
+                        <address class="content-info">
+                            <div class="row f-row">
+                                <div class="s-info"><span>Nome:</span>
+                                    <p id="json-introducing-name">Arlindo Abdul</p>
+                                </div>
+                                <div class="s-info"><span>Idade:</span>
+                                    <p id="json-introducing-age"></p>
+                                </div>
+                            </div>
+                            <div class="row l-row">
+                                <div class="s-info"><span>Email:</span>
+                                    <p><a href="mailto:admin@tudocomlizzyman.com"
+                                            id="json-introducing-email">admin@tudocomlizzyman.com</a></p>
+                                </div>
+                                <div class="s-info"><span>Naturalidade:</span>
+                                    <p id="json-introducing-place_of_birth">Cidade de Nampula, MZ</p>
+                                </div>
+                            </div>
+                        </address>
+                        <div class="link-content">
+                            <button class="content-download" id="down-cv">CURRICULUM VITAE</button>
+                            <ul class="content-follow">
+                                <li>
+                                    <a href="https://github.com/Lizzyman04" class="github-link"><span
+                                            class="css-icon github-icon"></span></a>
+                                </li>
+                                <li>
+                                    <a href="https://www.linkedin.com/in/arlindoabdul" class="linkedin-link"
+                                        target="_blank"><span class="css-icon linkedin-icon"></span></a>
+                                </li>
+                                <li>
+                                    <a href="https://tudocomlizzyman.com" class="blog-link"><span
+                                            class="css-icon blog-icon"></span></a>
+                                </li>
+                                <li>
+                                    <a href="https://www.instagram.com/tudocomlizzyman" class="instagram-link"
+                                        target="_blank"><span class="css-icon instagram-icon"></span></a>
+                                </li>
+                                <li>
+                                    <a href="https://wa.me/+258877603501" class="whatsapp-link" target="_blank"><span
+                                            class="css-icon whatsapp-icon"></span></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="skills-container">
+                    <div class="skills-heading sub-section-heading">
+                        <h2 class="skills-title sub-section-title">Competências</h2>
+                        <p class="skills-description sub-section-description">My level of knowledge in some tools</p>
+                    </div>
+                    <div class="skills-content" id="skills"></div>
+                </div>
+            </div>
         </section>
 
         <!-- PORTFÓLIO (Section to show my works) -->
@@ -149,7 +218,81 @@
                 <p class="section-description">Let's talk?</p>
                 <div class="animated-bar"></div>
             </div>
-            <div class="section-inner"></div>
+            <div class="section-inner">
+                <div class="contact-section">
+                    <div class="contact-form">
+                        <form action="https://formspree.io/f/mvgprpek" method="POST">
+                            <h4>Deixe-me um recado!</h4>
+                            <div class="form-inner">
+                                <input class="form-control form-45-control" id="contact-name" type="text" name="name"
+                                    placeholder="Nome" required>
+                                <input class="form-control form-45-control" id="contact-email" type="email" name="email"
+                                    placeholder="Correio electrónico" required>
+                                <input class="form-control form-100-control" id="contact-subject" type="text"
+                                    name="subject" placeholder="Assunto" required>
+                                <textarea class="form-control form-100-control" id="contact-message" name="message"
+                                    placeholder="Mensagem" rows="5" required></textarea>
+                                <button class="form-submit" id="contact-submit" type="submit">Get in Touch</button>
+                                <p class="contact-feedback"></p>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="contact-info">
+                        <h4>Como me encontrar?</h4>
+                        <p class="info-desc">Estou comprometido em oferecer soluções criativas em todas as
+                            áreas em que atuo. Sinta-se à vontade para entrar em contato comigo!</p>
+                        <ul class="info-list">
+                            <li>
+                                <div class="info-list-inner">
+                                    <span class="info-icon">
+                                        <span class="css-icon location-icon"></span>
+                                    </span>
+                                    <div class="info-details">
+                                        <h6 class="info-type">Localização</h6>
+                                        <span class="info-value">Mutauanha, Muatala, Nampula, Mozambique</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="info-list-inner">
+                                    <span class="info-icon">
+                                        <span class="css-icon telegram-icon"></span>
+                                    </span>
+                                    <div class="info-details">
+                                        <h6 class="info-type">Telegram</h6>
+                                        <span class="info-value"><a href="https://t.me/lizzyman04" class="telegram-link"
+                                                target="_blank">@lizzyman04</a></span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="info-list-inner">
+                                    <span class="info-icon">
+                                        <span class="css-icon tel-icon"></span>
+                                    </span>
+                                    <div class="info-details">
+                                        <h6 class="info-type">Celular</h6>
+                                        <span class="info-value"><a href="tel:+258877603501" class="tel-link"
+                                                target="_blank">+258 87 76 03 501</a></span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="info-list-inner">
+                                    <span class="info-icon">
+                                        <span class="css-icon email-icon"></span>
+                                    </span>
+                                    <div class="info-details">
+                                        <h6 class="info-type">Correio electrónico</h6>
+                                        <span class="info-value"><a href="mailto:admin@tudocomlizzyman.com"
+                                                class="email-link">admin@tudocomlizzyman.com</a></span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
 </body>
