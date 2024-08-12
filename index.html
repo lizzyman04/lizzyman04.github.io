@@ -8,6 +8,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prazer, Arlindo! | Freelancer Especialista em TI e Programação</title>
 
+    <meta name="description"
+        content="Sou uma pessoa versátil, com uma paixão pela escrita, arte e tecnologia. Possuo experiência em redacção de blogs, estratégias de SEO e produção de conteúdos audiovisuais...">
+    <meta name="keywords"
+        content="Arlindo Abdul, Arlindo, Abdul, Lizzyman, Tudo Com Lizzyman, Freelancer, Desenvolvedor, Escritor, Tutor, Gestor">
+    <meta name="author" content="Arlindo Abdul">
+    <meta name="robots" content="index, follow">
+
+    <!-- SOCIAL MEDIA PREVIEW (Open Graph) & TWITTER CARD -->
+    <meta property="og:title" content="Prazer, Arlindo! | Freelancer Especialista em TI e Programação">
+    <meta property="og:description"
+        content="Sou uma pessoa versátil, com uma paixão pela escrita, arte e tecnologia. Possuo experiência em redacção de blogs, estratégias de SEO e produção de conteúdos audiovisuais...">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tudocomlizzyman.com">
+    <meta property="og:image" content="https://me.tudocomlizzyman.com/assets/img/introducing-myself.webp">
+    <meta property="og:site_name" content="Arlindo Abdul">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Prazer, Arlindo! | Freelancer Especialista em TI e Programação">
+    <meta name="twitter:description"
+        content="Sou uma pessoa versátil, com uma paixão pela escrita, arte e tecnologia. Possuo experiência em redacção de blogs, estratégias de SEO e produção de conteúdos audiovisuais...">
+    <meta name="twitter:image" content="https://me.tudocomlizzyman.com/assets/img/introducing-myself.webp">
+
+    <!-- CANONICAL LINK -->
+    <link rel="canonical" href="https://me.tudocomlizzyman.com">
+
     <!-- FAVICON -->
     <link rel="shortcut icon" href="./assets/img/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" href="./assets/img/favicon.ico">
@@ -40,7 +64,13 @@
             <div class="circle"></div>
             <div class="circle"></div>
         </div>
-        <div class="welcome-m">É sua primeira vez aqui?</div>
+        <div class="welcome-m" id="welcome-m">Carregando...</div>
+        <script>
+            const count_c = parseInt(localStorage.getItem("visit") || '0', 10) + 1;
+            const count_o = ["primeira", "segunda", "terceira", "quarta", "quinta", "sexta", "sétima", "oitava", "nona", "décima"];
+            localStorage.setItem("visit", count_c);
+            document.getElementById('welcome-m').textContent = count_c <= 10 ? `É sua ${count_o[count_c - 1]} vez aqui?` : `É sua ${count_c}ª vez aqui?`;
+        </script>  
     </div>
 
     <!-- Header -->
@@ -181,6 +211,28 @@
                         </div>
                     </div>
                 </div>
+                <div class="abilities-container">
+                    <div class="abilities-heading sub-section-heading">
+                        <h2 class="abilities-title sub-section-title">Habilidades</h2>
+                        <p class="abilities-description sub-section-description">Skills where I am unbeatable</p>
+                    </div>
+                    <div class="abilities-content" id="abilities"></div>
+                </div>
+                <div class="participations-container">
+                    <div class="participations-heading sub-section-heading">
+                        <h2 class="participations-title sub-section-title">Participações</h2>
+                        <p class="participations-description sub-section-description">Check out some of my experiences
+                        </p>
+                    </div>
+                    <div class="single-participations-tag">
+                        <h3>Educação</h3>
+                        <div class="education-content" id="education"></div>
+                    </div>
+                    <div class="single-participations-tag">
+                        <h3>Experiência</h3>
+                        <div class="experience-content" id="experience"></div>
+                    </div>
+                </div>
                 <div class="skills-container">
                     <div class="skills-heading sub-section-heading">
                         <h2 class="skills-title sub-section-title">Competências</h2>
@@ -198,7 +250,13 @@
                 <p class="section-description">Some of my works</p>
                 <div class="animated-bar"></div>
             </div>
-            <div class="section-inner"></div>
+            <div class="section-inner">
+                <div class="portfolio-container"></div>
+                <div class="portfolio-see-more">
+                    <a href="https://github.com/Lizzyman04?tab=repositories" class="see-more-link"
+                        target="_blank">Clique-me para apreciar mais das minhas criações 🙃</a>
+                </div>
+            </div>
         </section>
 
         <!-- INTROSPECÇÃO (Section to show my opinion) -->
@@ -208,7 +266,14 @@
                 <p class="section-description">How i see the world</p>
                 <div class="animated-bar"></div>
             </div>
-            <div class="section-inner"></div>
+            <div class="section-inner">
+                <div class="introspection-container"></div>
+                <div class="introspection-see-more">
+                    <a href="https://tudocomlizzyman.com/categoria/eu-escritor/" class="see-more-link"
+                        target="_blank">Clique-me para ver mais das minhas introspecções e momentos de aprendizado
+                        🙃</a>
+                </div>
+            </div>
         </section>
 
         <!-- CONECTE-ME (Section to show my contact informations) -->

@@ -1,0 +1,9 @@
+// It's me
+
+/* TEAM */
+Developer: Arlindo Abdul
+Site: https://me.tudocomlizzyman.com
+Last update: 2024-08-12
+
+/* SITE */
+Technology Stack: HTML, CSS, JavaScript

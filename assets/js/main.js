@@ -101,33 +101,85 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  // Fetch and resolve curriculum section
   fetchJSON('./assets/json/about.json', (json) => {
 
     const s_inner = document.querySelector('#about-me .section-inner');
 
-    console.log(json);
-
     if (json.error) {
-      s_inner.innerHTML = '';
+      s_inner.innerHTML = 'Oops... my resume decided to take a vacation!';
       console.error(json);
       return;
     }
 
-    document.querySelector('#json-introducing-presentation').textContent = json.introducing.presentation;
-    document.querySelector('#json-introducing-resume').textContent = json.introducing.resume;
-    document.querySelector('#json-introducing-name').textContent = json.introducing.name;
-    document.querySelector('#json-introducing-email').textContent = json.introducing.email;
-    document.querySelector('#json-introducing-email').setAttribute('href', `mailto:${json.introducing.email}`);
-    document.querySelector('#json-introducing-place_of_birth').textContent = json.introducing.place_of_birth;
+    s_inner.querySelector('#json-introducing-presentation').textContent = json.introducing.presentation;
+    s_inner.querySelector('#json-introducing-resume').textContent = json.introducing.resume;
+    s_inner.querySelector('#json-introducing-name').textContent = json.introducing.name;
+    s_inner.querySelector('#json-introducing-email').textContent = json.introducing.email;
+    s_inner.querySelector('#json-introducing-email').setAttribute('href', `mailto:${json.introducing.email}`);
+    s_inner.querySelector('#json-introducing-place_of_birth').textContent = json.introducing.place_of_birth;
 
-    const [year_of_birth,  month_of_birth, day_of_birth] = json.introducing.date_of_birth.split('-').map(Number);
+    const [year_of_birth, month_of_birth, day_of_birth] = json.introducing.date_of_birth.split('-').map(Number);
     const age = new Date().getFullYear() - year_of_birth - (new Date() < new Date(new Date().getFullYear(), month_of_birth - 1, day_of_birth) ? 1 : 0);
 
-    document.getElementById('json-introducing-age').textContent = age + " anos";
+    document.querySelector('#json-introducing-age').textContent = age + " anos";
 
-    const skills_container = document.querySelector('#skills');
+    const skills_container = s_inner.querySelector('#skills'),
+      abilities_container = s_inner.querySelector('#abilities'),
+      education_container = s_inner.querySelector('#education'),
+      experience_container = s_inner.querySelector('#experience');
 
-    let htmlSkills = '';
+    let htmlAbilities = '', htmlSkills = '', educationHTML = '', experienceHTML = '';
+
+    for (const ability in json.abilities) {
+      if (json.abilities.hasOwnProperty(ability)) {
+        htmlAbilities += createAbilityItem(ability, json.abilities[ability].description, json.abilities[ability].imgSrc);
+      }
+    }
+
+    function createAbilityItem(title, description, imgSrc) {
+      return `
+        <div class="ability">
+          <div class="ability-img">
+            <img src="${imgSrc}" alt="${title}">
+          </div>
+          <div class="ability-description">
+            <h2>${title}</h2>
+            <p>${description}</p>
+          </div>
+        </div>
+      `;
+    }
+
+    abilities_container.innerHTML = htmlAbilities;
+
+    for (const title in json.education) {
+      if (json.education.hasOwnProperty(title)) {
+        educationHTML += createParticipationItem(title, json.education[title]);
+      }
+    }
+
+    for (const title in json.experience) {
+      if (json.experience.hasOwnProperty(title)) {
+        experienceHTML += createParticipationItem(title, json.experience[title]);
+      }
+    }
+
+    function createParticipationItem(title, details) {
+      return `
+          <div class="participation-item">
+              <span class="item-arrow"></span>
+              <h5 class="item-title">${title}</h5>
+              <span class="item-carrer">${details.carrer}</span>
+              <span class="item-details">${details.institution || details.company}</span>
+              <span class="item-location">${details.location} / ${details.dates}</span>
+              <p class="item-description">${details.description}</p>
+          </div>
+      `;
+    }
+
+    education_container.innerHTML += educationHTML;
+    experience_container.innerHTML += experienceHTML;
 
     for (const category in json.skills) {
       if (json.skills.hasOwnProperty(category)) {
@@ -190,8 +242,97 @@ document.addEventListener("DOMContentLoaded", () => {
         skillCategory.classList.toggle('open');
       });
     });
-
   });
+
+  // Fetch and resolve portfolio section
+  fetchJSON('./assets/json/portfolio.json', (json) => {
+
+    const s_inner = document.querySelector('#portfolio .section-inner');
+
+    if (json.error) {
+      s_inner.innerHTML = 'Oops... my portfolio decided to take a vacation!';
+      console.error(json);
+      return;
+    }
+
+    const portfolio_container = s_inner.querySelector(".portfolio-container");
+
+    let portfolioHTML = '';
+
+    for (const project in json) {
+      if (json.hasOwnProperty(project)) {
+        portfolioHTML += createPortfolioItem(project, json[project]);
+      }
+    }
+
+    function createPortfolioItem(name, details) {
+      return `
+          <div class="portfolio-item">
+              <div class="portfolio-image">
+                  <img src="${details.imageSrc}" alt="${name} project">
+              </div>
+              <div class="portfolio-text">
+                  <h2>${name}</h2>
+                  <p>${details.description}</p>
+                  <ul class="portfolio-tech">
+                      ${details.technologies.map(tech => `<li>${tech}</li>`).join('')}
+                  </ul>
+                  <div class="portfolio-buttons">
+                      ${Object.entries(details.options).map(([label, link]) =>
+        `<a href="${link}" target="_blank"><button><span>${label}</span></button></a>`
+      ).join('')}
+                      ${details.notices.length > 0 ? `<div class="portfolio-notices">${details.notices.map(notice => `<p>${notice}</p>`).join('')}</div>` : ''}
+                  </div>
+              </div>
+          </div>
+      `;
+    }
+
+    portfolio_container.innerHTML += portfolioHTML;
+  });
+
+  // Fetch and resolve introspection section
+  fetchJSON('./assets/json/introspection.json', (json) => {
+
+    const s_inner = document.querySelector('#introspection .section-inner');
+
+    if (json.error) {
+      s_inner.innerHTML = 'Oops... my way of seeing the world decided to take a vacation!';
+      console.error(json);
+      return;
+    }
+
+    const introspectionContainer = s_inner.querySelector('.introspection-container');
+    let introspectionHTML = '';
+
+    for (const topic in json) {
+      if (json.hasOwnProperty(topic)) {
+        introspectionHTML += createIntrospectionItem(topic, json[topic]);
+      }
+    }
+
+    function createIntrospectionItem(title, details) {
+        return `
+            <div class="introspection-item">
+                <div class="introspection-card">
+                    <a class="introspection-image-link" href="${details.link}" target="_blank">
+                        <img class="introspection-image" src="${details.imgSrc}" alt="${title} post">
+                        <span class="introspection-date">${details.date}</span>
+                    </a>
+                    <div class="introspection-content">
+                        <a class="introspection-title-link" href="${details.link}" target="_blank">
+                            <h5 class="introspection-title">${title}</h5>
+                        </a>
+                        <p class="introspection-description">${details.description}</p>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+
+    introspectionContainer.innerHTML += introspectionHTML;
+  });
+
 
   function fetchJSON(path, callback) {
     const xhr = new XMLHttpRequest();

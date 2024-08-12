@@ -8,9 +8,74 @@
         "resume": "Sou uma pessoa versátil, com uma paixão pela escrita, arte e tecnologia. Possuo experiência em redacção de blogs, estratégias de SEO e produção de conteúdos audiovisuais. Sou especializado em explicar conceitos de análise matemática, estatística, probabilidade, mecânica física e TI. Estou imerso no universo da programação, aprimorando minhas habilidades de imaginar e propor soluções para problemas simples e complexos através de linguagens e ferramentas poderosas. Acredito no poder da educação e do compartilhamento de ideias para transformar vidas. Busco inspirar outros a seguir seus sonhos e alcançar o sucesso.",
         "cv_link": "#"
     },
-    "abilities": {},
-    "education": {},
-    "experience": {},
+    "abilities": {
+        "Freelancer": {
+            "description": "Estou comprometido em fornecer soluções criativas, mantendo-me actualizado com as mais recentes tendências tecnológicas. Encaro cada desafio como uma oportunidade única para contribuir em projectos desafiadores e promissores.",
+            "imgSrc": "./assets/img/freelancer.png"
+        },
+        "Desenvolvedor": {
+            "description": "Sou Desenvolvedor Full-Stack, especializado em todo o ciclo de vida do desenvolvimento de software (SDLC). Minha expertise em construir soluções escaláveis garante o sucesso contínuo dos projectos, alinhando tecnologia e estratégias de negócios.",
+            "imgSrc": "./assets/img/coding.png"
+        },
+        "Escritor": {
+            "description": "A poesia, para mim, é a mais profunda das expressões humanas, onde dou asas à minha imaginação. Como escritor, crio textos envolventes, que capturam a essência da mensagem e impactam directamente o leitor, conectando ideias e emoções com precisão.",
+            "imgSrc": "./assets/img/writing.png"
+        },
+        "Tutor": {
+            "description": "Sou um tutor especializado em transformar conceitos complexos em aprendizado acessível. Com métodos personalizados para um aprendizado cativante e eficaz, auxilio meus alunos a dominar diversas áreas do conhecimento, alcançando seus objetivos com confiança.",
+            "imgSrc": "./assets/img/teacher.png"
+        },
+        "Gestor": {
+            "description": "Sou um gestor versátil, com experiência em SEO e marketing, liderar projectos, recursos humanos e avaliações empresariais. Com uma abordagem estratégica, monitoro e optimizo processos, assegurando o sucesso organizacional e a realização dos objetivos corporativos.",
+            "imgSrc": "./assets/img/planning.png"
+        }
+    },
+    "education": {
+        "Bacharelado": {
+            "institution": "Universidade Rovuma",
+            "carrer": "Engenharia Informática",
+            "location": "Campus de Napipine, MZ",
+            "dates": "2022 - presente",
+            "description": "Graduação com foco em algoritmos, estruturas de dados, engenharia de software, matemática avançada, computação gráfica, IA e análise de big data."
+        },
+        "Nível Médio": {
+            "institution": "Escola Secundária de Namicopo",
+            "carrer": "ESG-SNE, 12ª Classe",
+            "location": "Cidade de Nampula, MZ",
+            "dates": "2020 - 2021",
+            "description": "Conclusão do ensino médio no SNE, nas disciplinas de Matemática, Física, Química, Biologia, Filosofia, Português e Inglês."
+        },
+        "Nível Básico": {
+            "institution": "Escola Secundária de Namicopo",
+            "carrer": "ESG-SNE, 10ª Classe",
+            "location": "Cidade de Nampula, MZ",
+            "dates": "2017 - 2019",
+            "description": "Conclusão do ensino básico como prepara ênfase em matemática aprofundada, ciências naturais, história e língua portuguesa."
+        }
+    },
+    "experience": {
+        "Trabalhos Freelance, 2018": {
+            "company": "Autônomo",
+            "carrer": "Freelancer",
+            "location": "Cidade de Nampula, MZ",
+            "dates": "2018 - presente",
+            "description": "Habilidoso redator, especialista em marketing e SEO, desenvolvedor full-stack, produtor audiovisual e tutor em diferentes áreas do conhecimento."
+        },
+        "Centro de Formação, 2022": {
+            "carrer": "Formador",
+            "company": "HS-África – Oficina de Sucesso",
+            "location": "Cidade de Nampula, MZ",
+            "dates": "2022 - 2024",
+            "description": "Formador em cursos de informática, inglês e gestão em modalidades presenciais e online, com material didáctico personalizado."
+        },
+        "Centro de Cópias, 2020": {
+            "company": "LM-Printer – Prestação de Serviços",
+            "carrer": "Reprografista",
+            "location": "Cidade de Nampula, MZ",
+            "dates": "2020 - 2022",
+            "description": "Competente agente de acompanhamento acadêmico, operação de máquinas de impressão e estampagem, redação, edição de mídias e design gráfico."
+        }
+    },
     "skills": {
         "Domínios": {
             "Matemática e Estatística": "94%",
@@ -31,7 +96,7 @@
             "Discord": "48%"
         },
         "Linguagens de Programação": {
-            "HTML5/CSS3": "92%",
+            "HTML5 & CSS3": "92%",
             "JavaScript": "78%",
             "Java": "72%",
             "C": "26%",
@@ -44,11 +109,11 @@
             "Node.js": "72%",
             "Bootstrap": "52%",
             "JQuery": "80%",
-            "React.js": "54%",
+            "React": "54%",
             "Jekyll": "76%",
             "Tailwind": "48%",
-            "npm/YarnPkg": "88%",
-            "Composer.php": "32%"
+            "npm & yarn": "88%",
+            "Composer": "32%"
         },
         "Ferramentas de Design": {
             "Figma": "62%",
@@ -63,7 +128,7 @@
             "MySQL Workbench": "82%",
             "Git & GitHub": "74%",
             "Chrome DevTools": "88%",
-            "Xampp/Wamp": "76%",
+            "Xampp, Wamp & Mamp Server": "76%",
             "Android Studio": "38%"
         },
         "Banco de Dados": {
