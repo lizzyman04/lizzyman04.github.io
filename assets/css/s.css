@@ -486,6 +486,12 @@
     }
 }
 
+.participations-container .single-participations-tag .education-content,
+.participations-container .single-participations-tag .experience-content {
+    word-wrap: break-word;
+    white-space: normal;
+}
+
 .participations-container .single-participations-tag .participation-item {
     background-color: #161616;
     border-left: 2px solid transparent;

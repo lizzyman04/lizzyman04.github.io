@@ -6,7 +6,7 @@
         "email": "admin@tudocomlizzyman.com",
         "presentation": "Prazer, Arlindo. Eu faço coisas!",
         "resume": "Sou uma pessoa versátil, com uma paixão pela escrita, arte e tecnologia. Possuo experiência em redacção de blogs, estratégias de SEO e produção de conteúdos audiovisuais. Sou especializado em explicar conceitos de análise matemática, estatística, probabilidade, mecânica física e TI. Estou imerso no universo da programação, aprimorando minhas habilidades de imaginar e propor soluções para problemas simples e complexos através de linguagens e ferramentas poderosas. Acredito no poder da educação e do compartilhamento de ideias para transformar vidas. Busco inspirar outros a seguir seus sonhos e alcançar o sucesso.",
-        "cv_link": "#"
+        "cv_link": "/pdf/cv.pdf"
     },
     "abilities": {
         "Freelancer": {
@@ -36,21 +36,21 @@
             "carrer": "Engenharia Informática",
             "location": "Campus de Napipine, MZ",
             "dates": "2022 - presente",
-            "description": "Graduação com foco em algoritmos, estruturas de dados, engenharia de software, matemática avançada, computação gráfica, IA e análise de big data."
+            "description": "Formação focada em algoritmos, estruturas de dados, engenharia de software, matemática avançada, computação gráfica, IA e análise de big data."
         },
         "Nível Médio": {
             "institution": "Escola Secundária de Namicopo",
             "carrer": "ESG-SNE, 12ª Classe",
             "location": "Cidade de Nampula, MZ",
             "dates": "2020 - 2021",
-            "description": "Conclusão do ensino médio no SNE, nas disciplinas de Matemática, Física, Química, Biologia, Filosofia, Português e Inglês."
+            "description": "Conclusão do ensino secundário com formação integral em Matemática, Física, Química, Biologia, Filosofia, Português e Inglês."
         },
         "Nível Básico": {
             "institution": "Escola Secundária de Namicopo",
             "carrer": "ESG-SNE, 10ª Classe",
             "location": "Cidade de Nampula, MZ",
             "dates": "2017 - 2019",
-            "description": "Conclusão do ensino básico como prepara ênfase em matemática aprofundada, ciências naturais, história e língua portuguesa."
+            "description": "Conclusão do ensino básico com foco na preparação técnica e teórica para o ingresso no nível médio, com ênfase em habilidades analíticas e de raciocínio lógico."
         }
     },
     "experience": {
@@ -96,7 +96,7 @@
             "Discord": "48%"
         },
         "Linguagens de Programação": {
-            "HTML5 & CSS3": "92%",
+            "HTML5 & CSS3": "94%",
             "JavaScript": "78%",
             "Java": "72%",
             "C": "26%",

@@ -124,6 +124,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.querySelector('#json-introducing-age').textContent = age + " anos";
 
+    document.querySelector('#down-cv').addEventListener('click', function() {
+      window.open(json.introducing.cv_link, '_blank');
+  });  
+
     const skills_container = s_inner.querySelector('#skills'),
       abilities_container = s_inner.querySelector('#abilities'),
       education_container = s_inner.querySelector('#education'),
