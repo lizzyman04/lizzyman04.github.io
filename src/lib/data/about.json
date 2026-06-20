@@ -11,23 +11,23 @@
     "abilities": {
         "Freelancer": {
             "description": "Estou comprometido em fornecer soluções criativas, mantendo-me actualizado com as mais recentes tendências tecnológicas. Encaro cada desafio como uma oportunidade única para contribuir em projectos desafiadores e promissores.",
-            "imgSrc": "./assets/img/freelancer.png"
+            "imgSrc": "/img/freelancer.png"
         },
         "Desenvolvedor": {
             "description": "Sou Desenvolvedor Full-Stack, especializado em todo o ciclo de vida do desenvolvimento de software (SDLC). Minha expertise em construir soluções escaláveis garante o sucesso contínuo dos projectos, alinhando tecnologia e estratégias de negócios.",
-            "imgSrc": "./assets/img/coding.png"
+            "imgSrc": "/img/coding.png"
         },
         "Escritor": {
             "description": "A poesia, para mim, é a mais profunda das expressões humanas, onde dou asas à minha imaginação. Como escritor, crio textos envolventes, que capturam a essência da mensagem e impactam directamente o leitor, conectando ideias e emoções com precisão.",
-            "imgSrc": "./assets/img/writing.png"
+            "imgSrc": "/img/writing.png"
         },
         "Tutor": {
             "description": "Sou um tutor especializado em transformar conceitos complexos em aprendizado acessível. Com métodos personalizados para um aprendizado cativante e eficaz, auxilio meus alunos a dominar diversas áreas do conhecimento, alcançando seus objetivos com confiança.",
-            "imgSrc": "./assets/img/teacher.png"
+            "imgSrc": "/img/teacher.png"
         },
         "Gestor": {
             "description": "Sou um gestor versátil, com experiência em SEO e marketing, liderar projectos, recursos humanos e avaliações empresariais. Com uma abordagem estratégica, monitoro e optimizo processos, assegurando o sucesso organizacional e a realização dos objetivos corporativos.",
-            "imgSrc": "./assets/img/planning.png"
+            "imgSrc": "/img/planning.png"
         }
     },
     "education": {

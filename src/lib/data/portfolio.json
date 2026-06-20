@@ -6,7 +6,7 @@
             "Ruby",
             "SEO"
         ],
-        "imageSrc": "./assets/img/projects/tudocomlizzyman.png",
+        "imageSrc": "/img/projects/tudocomlizzyman.png",
         "options": {
             "Visitar Blog": "https://tudocomlizzyman.com/"
         },
@@ -18,7 +18,7 @@
             "React",
             "IndexedDB"
         ],
-        "imageSrc": "./assets/img/projects/agenda.jpg",
+        "imageSrc": "/img/projects/agenda.jpg",
         "options": {
             "Ver Web App": "https://agenda.tudocomlizzyman.com/",
             "Ver Código Fonte": "https://github.com/Lizzyman04/agenda"
@@ -32,7 +32,7 @@
             "MySQL",
             "JQuery"
         ],
-        "imageSrc": "./assets/img/projects/africa-creative.png",
+        "imageSrc": "/img/projects/africa-creative.png",
         "options": {},
         "notices": [
             "Este projecto é privado."

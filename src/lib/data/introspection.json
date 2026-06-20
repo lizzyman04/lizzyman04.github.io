@@ -2,13 +2,13 @@
     "O mundo caótico que hoje vivemos": {
         "date": "06 Jul, 24",
         "description": "Acredito que poemas sobre o mundo caótico de hoje são uma maneira poderosa de reflectir sobre o nosso mundo e os desafios que enfrentamos...",
-        "imgSrc": "./assets/img/blogs/frame_a_resistencia.png",
+        "imgSrc": "/img/blogs/frame_a_resistencia.png",
         "link": "https://tudocomlizzyman.com/eu-escritor/poema-seculo-xxi/"
     },
     "Bullying - O Peso da Perseguição": {
         "date": "29 Jun, 24",
         "description": "Acredito que poemas sobre bullying são uma forma poderosa de abordar o assunto e conscientizar as pessoas sobre seus efeitos negativos...",
-        "imgSrc": "./assets/img/blogs/o-peso-da-perseguicao.jpg",
+        "imgSrc": "/img/blogs/o-peso-da-perseguicao.jpg",
         "link": "https://tudocomlizzyman.com/eu-escritor/poema-o-peso-da-perseguicao/"
     }
 }

@@ -16,7 +16,7 @@
     --white-color: #fff;
     --lucky-grey-color: #777;
 
-    --cursor-32: url('../img/cursor-32.svg') 32 0, auto;
+    --cursor-32: url('/img/cursor-32.svg') 32 0, auto;
 }
 
 /* Default behaviour (body, scroll, cursor, etc...) */
