@@ -1,8 +1,5 @@
 <script>
-	import portfolio from '$lib/data/portfolio.json';
-	const projects = Object.entries(portfolio);
-
-	let { visible = false } = $props();
+	let { visible = false, projects = [] } = $props();
 </script>
 
 <section class="me-section" id="portfolio" style:display={visible ? 'block' : 'none'}>
@@ -13,22 +10,22 @@
 	</div>
 	<div class="section-inner">
 		<div class="portfolio-container">
-			{#each projects as [name, d]}
+			{#each projects as p}
 				<div class="portfolio-item">
-					<div class="portfolio-image"><img src={d.imageSrc} alt="{name} project" /></div>
+					<div class="portfolio-image"><img src={p.image} alt="{p.title} project" /></div>
 					<div class="portfolio-text">
-						<h2>{name}</h2>
-						<p>{d.description}</p>
+						<h2>{p.title}</h2>
+						<p>{p.description}</p>
 						<ul class="portfolio-tech">
-							{#each d.technologies as tech}<li>{tech}</li>{/each}
+							{#each p.technologies ?? [] as tech}<li>{tech}</li>{/each}
 						</ul>
 						<div class="portfolio-buttons">
-							{#each Object.entries(d.options) as [label, link]}
+							{#each Object.entries(p.options ?? {}) as [label, link]}
 								<a href={link} target="_blank" rel="noopener"><button><span>{label}</span></button></a>
 							{/each}
-							{#if d.notices.length > 0}
+							{#if (p.notices ?? []).length > 0}
 								<div class="portfolio-notices">
-									{#each d.notices as notice}<p>{notice}</p>{/each}
+									{#each p.notices as notice}<p>{notice}</p>{/each}
 								</div>
 							{/if}
 						</div>

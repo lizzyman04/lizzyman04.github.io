@@ -1,7 +1,7 @@
 <script>
 	const ACTION = 'https://formspree.io/f/mvgprpek';
 
-	let { visible = false } = $props();
+	let { visible = false, email = 'admin@tudocomlizzyman.com' } = $props();
 
 	let btnText = $state('Get in Touch');
 	let btnState = $state(''); // '', 'wait', 'success', 'error'

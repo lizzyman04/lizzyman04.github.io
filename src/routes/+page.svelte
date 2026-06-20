@@ -7,6 +7,9 @@
 	import Introspeccao from '$lib/components/Introspeccao.svelte';
 	import ConecteMe from '$lib/components/ConecteMe.svelte';
 
+	let { data } = $props();
+	const c = data.content;
+
 	let active = $state('home');
 	let menuOpen = $state(false);
 	let breakerOn = $state(false);
@@ -43,9 +46,16 @@
 		{/key}
 	{/if}
 
-	<Hero visible={active === 'home'} />
-	<Curriculo visible={active === 'about-me'} />
-	<Portfolio visible={active === 'portfolio'} />
-	<Introspeccao visible={active === 'introspection'} />
-	<ConecteMe visible={active === 'hire-me'} />
+	<Hero visible={active === 'home'} hero={c.hero} />
+	<Curriculo
+		visible={active === 'about-me'}
+		profile={c.profile}
+		abilities={c.abilities}
+		education={c.education}
+		experience={c.experience}
+		skills={c.skills}
+	/>
+	<Portfolio visible={active === 'portfolio'} projects={c.projects} />
+	<Introspeccao visible={active === 'introspection'} introspections={c.introspections} />
+	<ConecteMe visible={active === 'hire-me'} email={c.profile?.email} />
 </main>

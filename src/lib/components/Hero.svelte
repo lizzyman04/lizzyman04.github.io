@@ -2,18 +2,24 @@
 	import { particles } from '$lib/actions/particles.js';
 	import { txtRotate } from '$lib/actions/txtRotate.js';
 
-	const roles = [' Freelancer.', ' Desenvolvedor.', ' Escritor.', ' Tutor.'];
+	let { visible = true, hero } = $props();
 
-	let { visible = true } = $props();
+	// API roles are plain ("Freelancer."); keep the original leading-space spacing.
+	const roles = (hero?.roles ?? ['Freelancer.', 'Desenvolvedor.', 'Escritor.', 'Tutor.']).map(
+		(r) => (r.startsWith(' ') ? r : ' ' + r)
+	);
+	const name = hero?.name ?? 'Arlindo Abdul';
+	const prefix = hero?.prefix ?? 'Sou um';
+	const period = hero?.period ?? 2600;
+	const bg = hero?.bg_image;
 </script>
 
 <section class="hero" id="home" style:display={visible ? 'block' : 'none'}>
 	<div class="particles" id="particles-js" use:particles></div>
 	<div class="bg-img">
-		<picture>
-			<source srcset="/img/bg.webp" type="image/webp" />
-			<img src="/img/bg.webp" alt="" />
-		</picture>
+		{#if bg}
+			<img src={bg} alt="" />
+		{/if}
 	</div>
 	<div class="social-media-links">
 		<a href="https://github.com/Lizzyman04" class="github-link"><span class="css-icon github-icon"></span></a>
@@ -23,10 +29,10 @@
 	</div>
 	<div class="hi-container">
 		<div class="hi">
-			<h1 class="hi-pleasure"><span class="name">Arlindo</span> Abdul</h1>
+			<h1 class="hi-pleasure"><span class="name">{name.split(' ')[0]}</span> {name.split(' ').slice(1).join(' ')}</h1>
 			<div class="what-i-do">
-				Sou um
-				<span class="txt-rotate" use:txtRotate={{ words: roles, period: 2600 }}></span><span class="slash">|</span>
+				{prefix}
+				<span class="txt-rotate" use:txtRotate={{ words: roles, period }}></span><span class="slash">|</span>
 			</div>
 		</div>
 	</div>
