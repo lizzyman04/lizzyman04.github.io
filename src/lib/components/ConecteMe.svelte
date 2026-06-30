@@ -1,7 +1,38 @@
 <script>
+	import { subscribe } from '$lib/api.js';
+
 	const ACTION = 'https://formspree.io/f/mvgprpek';
 
 	let { visible = false, email = 'admin@tudocomlizzyman.com' } = $props();
+
+	// Newsletter subscribe state.
+	let subEmail = $state('');
+	let subHoney = $state(''); // honeypot — bots fill it, humans don't
+	let subBtn = $state('Subscrever');
+	let subState = $state(''); // '', 'wait', 'success', 'error'
+	let subMsg = $state('');
+	let subDisabled = $state(false);
+
+	async function handleSubscribe(event) {
+		event.preventDefault();
+		if (subHoney) return; // drop bots silently
+		subBtn = 'Aguarde...';
+		subState = 'wait';
+		subDisabled = true;
+		try {
+			await subscribe(subEmail, { source: 'site' });
+			subState = 'success';
+			subBtn = 'Subscrito!';
+			subMsg = 'Verifique o seu email para confirmar a subscrição.';
+			subEmail = '';
+		} catch (e) {
+			subState = 'error';
+			subBtn = 'Tente novamente';
+			subMsg = e.message;
+		} finally {
+			subDisabled = false;
+		}
+	}
 
 	let btnText = $state('Get in Touch');
 	let btnState = $state(''); // '', 'wait', 'success', 'error'
@@ -117,5 +148,56 @@
 				</ul>
 			</div>
 		</div>
+
+		<div class="newsletter-section">
+			<h4>Newsletter</h4>
+			<p class="info-desc">Receba novidades, artigos e reflexões directamente no seu email.</p>
+			<form onsubmit={handleSubscribe} class="newsletter-form">
+				<input
+					class="form-control"
+					type="email"
+					name="email"
+					placeholder="O seu correio electrónico"
+					bind:value={subEmail}
+					required
+				/>
+				<input
+					class="newsletter-hp"
+					type="text"
+					name="website"
+					tabindex="-1"
+					autocomplete="off"
+					bind:value={subHoney}
+					aria-hidden="true"
+				/>
+				<button class="form-submit {subState}" type="submit" disabled={subDisabled}>{subBtn}</button>
+			</form>
+			<p class="contact-feedback {subState}" style:display={subMsg ? 'block' : 'none'}>{subMsg}</p>
+		</div>
 	</div>
 </section>
+
+<style>
+	.newsletter-section {
+		margin-top: 2rem;
+		text-align: center;
+	}
+	.newsletter-form {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+		justify-content: center;
+		max-width: 480px;
+		margin: 1rem auto 0;
+	}
+	.newsletter-form .form-control {
+		flex: 1 1 240px;
+	}
+	.newsletter-hp {
+		position: absolute;
+		left: -9999px;
+		width: 1px;
+		height: 1px;
+		opacity: 0;
+	}
+</style>
