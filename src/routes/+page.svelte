@@ -7,6 +7,7 @@
 	import Introspeccao from '$lib/components/Introspeccao.svelte';
 	import ConecteMe from '$lib/components/ConecteMe.svelte';
 	import LangSwitch from '$lib/components/LangSwitch.svelte';
+	import SimonGame from '$lib/components/SimonGame.svelte';
 
 	let { data } = $props();
 	const c = data.content;
@@ -61,3 +62,5 @@
 	<Introspeccao visible={active === 'introspection'} introspections={c.introspections} />
 	<ConecteMe visible={active === 'hire-me'} email={c.profile?.email} />
 </main>
+
+<SimonGame />

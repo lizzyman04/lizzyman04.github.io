@@ -104,6 +104,18 @@ const messages = {
 		'nl.retry': 'Tente novamente',
 		'nl.success': 'Verifique o seu email para confirmar a subscrição.',
 
+		'sg.fab': 'Jogar Simon',
+		'sg.hint': 'Que tal um jogo rápido enquanto está por aqui? 🎮',
+		'sg.title': 'Simon Says',
+		'sg.start': 'Iniciar',
+		'sg.playing': 'A jogar...',
+		'sg.ready': 'Prepare-se!',
+		'sg.press': 'Carregue em Iniciar para jogar!',
+		'sg.level': (n) => `Nível ${n}`,
+		'sg.over': 'Fim de jogo! Carregue em Iniciar para tentar de novo.',
+		'sg.high': (n) => `Recorde: ${n}`,
+		'sg.close': 'Fechar',
+
 		'loader.again': (n) => `É sua ${n} vez aqui?`
 	},
 	en: {
@@ -165,6 +177,18 @@ const messages = {
 		'nl.subscribed': 'Subscribed!',
 		'nl.retry': 'Try again',
 		'nl.success': 'Check your email to confirm your subscription.',
+
+		'sg.fab': 'Play Simon',
+		'sg.hint': 'Fancy a quick game while you are here? 🎮',
+		'sg.title': 'Simon Says',
+		'sg.start': 'Start',
+		'sg.playing': 'Playing...',
+		'sg.ready': 'Get ready!',
+		'sg.press': 'Press Start to play!',
+		'sg.level': (n) => `Level ${n}`,
+		'sg.over': 'Game over! Press Start to try again.',
+		'sg.high': (n) => `High Score: ${n}`,
+		'sg.close': 'Close',
 
 		'loader.again': (n) => `Is this your ${n} time here?`
 	}

@@ -1,7 +1,31 @@
-## Simon Game - GitHub Pages
+# lizzyman04.github.io — Portfolio
 
-Olá! Sou Arlindo, um freelancer versátil com paixão por escrita, arte e tecnologia, comprometido em oferecer soluções completas e personalizadas.
+Olá! Sou Arlindo (lizzyman04), um freelancer versátil com paixão por escrita, arte e
+tecnologia. Este repositório hospeda o meu portfólio pessoal, construído em **SvelteKit**,
+com conteúdo servido pela API Laravel (`lizzyman04-api`) e suporte a dois idiomas (PT/EN).
 
-Esta é uma versão lightweight do clássico jogo Simon, [teste sua memória](https://lizzyman04.github.io) com um dos jogos mais icônicos dos anos 80.
+Aqui pode explorar as minhas habilidades, competências, trabalhos e trajetória profissional.
 
-Na minha página, você pode explorar minhas habilidades, competências, serviços que ofereço, conferir meus trabalhos e conhecer mais sobre minha trajetória profissional. Estou sempre em busca de novos desafios e pronto para colaborar em procjetos estimulantes e promissores. Acesse-o e descubra como posso contribuir para o sucesso do seu projecto: [me.tudocomlizzyman.com](https://me.tudocomlizzyman.com).
+## 🎮 Easter egg: Simon Says
+
+O clássico jogo Simon — a primeira coisa que criei quando comecei a programar em
+HTML/CSS/JS — continua aqui. Já não é a página principal: agora vive num **botão
+flutuante** no canto inferior direito. Clique nele e um toast aparece para jogar uma
+partida rápida, sem sair do portfólio. O código original está preservado no histórico
+de commits deste repositório.
+
+## Desenvolvimento
+
+```bash
+npm install
+npm run dev      # servidor de desenvolvimento
+npm run build    # build de produção (adapter-node)
+```
+
+## Stack
+
+- **SvelteKit 5** (runes) + `adapter-node` (SSR)
+- Conteúdo via API REST (`lizzyman04-api`)
+- i18n PT/EN com troca de idioma no cliente
+
+Mais sobre mim: [tudocomlizzyman.com](https://tudocomlizzyman.com)
