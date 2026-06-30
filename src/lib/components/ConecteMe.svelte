@@ -1,62 +1,81 @@
 <script>
 	import { subscribe } from '$lib/api.js';
+	import { locale, t } from '$lib/i18n.js';
 
 	const ACTION = 'https://formspree.io/f/mvgprpek';
 
 	let { visible = false, email = 'admin@tudocomlizzyman.com' } = $props();
 
-	// Newsletter subscribe state.
+	// --- Newsletter subscribe ---
 	let subEmail = $state('');
 	let subHoney = $state(''); // honeypot — bots fill it, humans don't
-	let subBtn = $state('Subscrever');
-	let subState = $state(''); // '', 'wait', 'success', 'error'
-	let subMsg = $state('');
+	let subPhase = $state('idle'); // idle | wait | success | error
+	let subErr = $state(''); // thrown error message (already localized by api.js)
 	let subDisabled = $state(false);
+
+	let subBtn = $derived(
+		subPhase === 'wait'
+			? t('nl.wait', $locale)
+			: subPhase === 'success'
+				? t('nl.subscribed', $locale)
+				: subPhase === 'error'
+					? t('nl.retry', $locale)
+					: t('nl.subscribe', $locale)
+	);
+	let subState = $derived(subPhase === 'idle' ? '' : subPhase);
+	let subMsg = $derived(
+		subPhase === 'success' ? t('nl.success', $locale) : subPhase === 'error' ? subErr : ''
+	);
 
 	async function handleSubscribe(event) {
 		event.preventDefault();
 		if (subHoney) return; // drop bots silently
-		subBtn = 'Aguarde...';
-		subState = 'wait';
+		subPhase = 'wait';
 		subDisabled = true;
 		try {
 			await subscribe(subEmail, { source: 'site' });
-			subState = 'success';
-			subBtn = 'Subscrito!';
-			subMsg = 'Verifique o seu email para confirmar a subscrição.';
+			subPhase = 'success';
 			subEmail = '';
 		} catch (e) {
-			subState = 'error';
-			subBtn = 'Tente novamente';
-			subMsg = e.message;
+			subPhase = 'error';
+			subErr = e.message;
 		} finally {
 			subDisabled = false;
 		}
 	}
 
-	let btnText = $state('Get in Touch');
-	let btnState = $state(''); // '', 'wait', 'success', 'error'
-	let feedback = $state('');
-	let feedbackState = $state('');
+	// --- Contact form (Formspree) ---
+	let phase = $state('idle'); // idle | wait | success | error
+	let fbKey = $state(''); // 'ct.okFeedback' | 'ct.errFeedback'
 	let disabled = $state(false);
 	let resetTimer;
+
+	let btnText = $derived(
+		phase === 'wait'
+			? t('ct.wait', $locale)
+			: phase === 'success'
+				? t('ct.sent', $locale)
+				: phase === 'error'
+					? t('ct.error', $locale)
+					: t('ct.send', $locale)
+	);
+	let btnState = $derived(phase === 'idle' ? '' : phase);
+	let feedbackState = $derived(phase === 'success' ? 'success' : phase === 'error' ? 'error' : '');
+	let feedback = $derived(fbKey ? t(fbKey, $locale) : '');
 
 	function scheduleReset() {
 		clearTimeout(resetTimer);
 		resetTimer = setTimeout(() => {
-			btnText = 'Get in Touch';
-			btnState = '';
+			phase = 'idle';
 			disabled = false;
-			feedback = '';
-			feedbackState = '';
+			fbKey = '';
 		}, 30000);
 	}
 
 	async function handleSubmit(event) {
 		event.preventDefault();
 		const form = event.target;
-		btnText = 'Aguarde...';
-		btnState = 'wait';
+		phase = 'wait';
 		disabled = true;
 
 		try {
@@ -67,18 +86,12 @@
 			});
 			const data = await res.json();
 			const ok = data.ok;
-			btnState = ok ? 'success' : 'error';
-			btnText = ok ? 'Recado deixado!' : 'Um erro ocorreu!';
-			feedbackState = ok ? 'success' : 'error';
-			feedback = ok
-				? 'Obrigado pela sua mensagem. Ela foi enviada.'
-				: 'Ocorreu um erro! Por favor, experimente outra forma de contacto.';
+			phase = ok ? 'success' : 'error';
+			fbKey = ok ? 'ct.okFeedback' : 'ct.errFeedback';
 			if (ok) form.reset();
 		} catch {
-			btnState = 'error';
-			btnText = 'Um erro ocorreu!';
-			feedbackState = 'error';
-			feedback = 'Ocorreu um erro! Por favor, experimente outra forma de contacto.';
+			phase = 'error';
+			fbKey = 'ct.errFeedback';
 		}
 		scheduleReset();
 	}
@@ -86,34 +99,34 @@
 
 <section class="me-section" id="hire-me" style:display={visible ? 'block' : 'none'}>
 	<div class="section-heading">
-		<h2 class="section-title">CONECTE-ME</h2>
-		<p class="section-description">Let's talk?</p>
+		<h2 class="section-title">{t('ct.title', $locale)}</h2>
+		<p class="section-description">{t('ct.subtitle', $locale)}</p>
 		<div class="animated-bar"></div>
 	</div>
 	<div class="section-inner">
 		<div class="contact-section">
 			<div class="contact-form">
 				<form onsubmit={handleSubmit}>
-					<h4>Deixe-me um recado!</h4>
+					<h4>{t('ct.leaveMessage', $locale)}</h4>
 					<div class="form-inner">
-						<input class="form-control form-45-control" type="text" name="name" placeholder="Nome" required />
-						<input class="form-control form-45-control" type="email" name="email" placeholder="Correio electrónico" required />
-						<input class="form-control form-100-control" type="text" name="subject" placeholder="Assunto" required />
-						<textarea class="form-control form-100-control" name="message" placeholder="Mensagem" rows="5" required></textarea>
+						<input class="form-control form-45-control" type="text" name="name" placeholder={t('ct.name', $locale)} required />
+						<input class="form-control form-45-control" type="email" name="email" placeholder={t('ct.email', $locale)} required />
+						<input class="form-control form-100-control" type="text" name="subject" placeholder={t('ct.subject', $locale)} required />
+						<textarea class="form-control form-100-control" name="message" placeholder={t('ct.message', $locale)} rows="5" required></textarea>
 						<button class="form-submit {btnState}" type="submit" {disabled}>{btnText}</button>
 						<p class="contact-feedback {feedbackState}" style:display={feedback ? 'block' : 'none'}>{feedback}</p>
 					</div>
 				</form>
 			</div>
 			<div class="contact-info">
-				<h4>Como me encontrar?</h4>
-				<p class="info-desc">Estou comprometido em oferecer soluções criativas em todas as áreas em que atuo. Sinta-se à vontade para entrar em contato comigo!</p>
+				<h4>{t('ct.howToFind', $locale)}</h4>
+				<p class="info-desc">{t('ct.howToFindDesc', $locale)}</p>
 				<ul class="info-list">
 					<li>
 						<div class="info-list-inner">
 							<span class="info-icon"><span class="css-icon location-icon"></span></span>
 							<div class="info-details">
-								<h6 class="info-type">Localização</h6>
+								<h6 class="info-type">{t('ct.location', $locale)}</h6>
 								<span class="info-value">Mutauanha, Muatala, Nampula, Mozambique</span>
 							</div>
 						</div>
@@ -131,7 +144,7 @@
 						<div class="info-list-inner">
 							<span class="info-icon"><span class="css-icon tel-icon"></span></span>
 							<div class="info-details">
-								<h6 class="info-type">Celular</h6>
+								<h6 class="info-type">{t('ct.mobile', $locale)}</h6>
 								<span class="info-value"><a href="tel:+258877603501" class="tel-link" target="_blank">+258 87 76 03 501</a></span>
 							</div>
 						</div>
@@ -140,7 +153,7 @@
 						<div class="info-list-inner">
 							<span class="info-icon"><span class="css-icon email-icon"></span></span>
 							<div class="info-details">
-								<h6 class="info-type">Correio electrónico</h6>
+								<h6 class="info-type">{t('ct.email', $locale)}</h6>
 								<span class="info-value"><a href="mailto:admin@tudocomlizzyman.com" class="email-link">admin@tudocomlizzyman.com</a></span>
 							</div>
 						</div>
@@ -150,14 +163,14 @@
 		</div>
 
 		<div class="newsletter-section">
-			<h4>Newsletter</h4>
-			<p class="info-desc">Receba novidades, artigos e reflexões directamente no seu email.</p>
+			<h4>{t('nl.title', $locale)}</h4>
+			<p class="info-desc">{t('nl.desc', $locale)}</p>
 			<form onsubmit={handleSubscribe} class="newsletter-form">
 				<input
 					class="form-control"
 					type="email"
 					name="email"
-					placeholder="O seu correio electrónico"
+					placeholder={t('nl.placeholder', $locale)}
 					bind:value={subEmail}
 					required
 				/>

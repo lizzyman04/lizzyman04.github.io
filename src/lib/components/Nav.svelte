@@ -1,11 +1,13 @@
 <script>
+	import { locale, t } from '$lib/i18n.js';
+
 	let { menuOpen = false, onOpen, onClose, onSelect } = $props();
 
 	const items = [
-		{ id: 'about-me', label: 'CURRÍCULO' },
-		{ id: 'portfolio', label: 'PORTFÓLIO' },
-		{ id: 'introspection', label: 'INTROSPECÇÃO' },
-		{ id: 'hire-me', label: 'CONECTE-ME' }
+		{ id: 'about-me', key: 'nav.about' },
+		{ id: 'portfolio', key: 'nav.portfolio' },
+		{ id: 'introspection', key: 'nav.introspection' },
+		{ id: 'hire-me', key: 'nav.contact' }
 	];
 </script>
 
@@ -29,7 +31,7 @@
 	</div>
 	<div class="nav-me">
 		{#each items as item}
-			<button data-text={item.label} onclick={() => onSelect(item.id)}>{item.label}</button>
+			<button data-text={t(item.key, $locale)} onclick={() => onSelect(item.id)}>{t(item.key, $locale)}</button>
 		{/each}
 	</div>
 </div>

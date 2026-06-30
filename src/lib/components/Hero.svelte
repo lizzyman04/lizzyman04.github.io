@@ -1,17 +1,22 @@
 <script>
 	import { particles } from '$lib/actions/particles.js';
 	import { txtRotate } from '$lib/actions/txtRotate.js';
+	import { locale, pick } from '$lib/i18n.js';
 
 	let { visible = true, hero } = $props();
 
-	// API roles are plain ("Freelancer."); keep the original leading-space spacing.
-	const roles = (hero?.roles ?? ['Freelancer.', 'Desenvolvedor.', 'Escritor.', 'Tutor.']).map(
-		(r) => (r.startsWith(' ') ? r : ' ' + r)
-	);
 	const name = hero?.name ?? 'Arlindo Abdul';
-	const prefix = hero?.prefix ?? 'Sou um';
 	const period = hero?.period ?? 2600;
 	const bg = hero?.bg_image;
+
+	// prefix/roles are per-locale; resolve reactively to the active language.
+	// API roles are plain ("Freelancer."); keep the original leading-space spacing.
+	let prefix = $derived(pick(hero?.prefix, $locale) ?? 'Sou um');
+	let roles = $derived(
+		(pick(hero?.roles, $locale) ?? ['Freelancer.', 'Desenvolvedor.', 'Escritor.', 'Tutor.']).map(
+			(r) => (r.startsWith(' ') ? r : ' ' + r)
+		)
+	);
 </script>
 
 <section class="hero" id="home" style:display={visible ? 'block' : 'none'}>
@@ -32,7 +37,7 @@
 			<h1 class="hi-pleasure"><span class="name">{name.split(' ')[0]}</span> {name.split(' ').slice(1).join(' ')}</h1>
 			<div class="what-i-do">
 				{prefix}
-				<span class="txt-rotate" use:txtRotate={{ words: roles, period }}></span><span class="slash">|</span>
+				{#key $locale}<span class="txt-rotate" use:txtRotate={{ words: roles, period }}></span>{/key}<span class="slash">|</span>
 			</div>
 		</div>
 	</div>
