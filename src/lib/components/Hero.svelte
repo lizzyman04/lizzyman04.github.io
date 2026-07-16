@@ -14,7 +14,14 @@
 	let prefix = $derived(pick(hero?.prefix, $locale) ?? 'Sou um');
 	let roles = $derived(
 		(
-			pick(hero?.roles, $locale) ?? ['Engenheiro.', 'Arquitecto.', 'Freelancer.', 'Escritor.', 'Tutor.']
+			pick(hero?.roles, $locale) ?? [
+				'Engenheiro.',
+				'Arquitecto.',
+				'Desenvolvedor.',
+				'Freelancer.',
+				'Escritor.',
+				'Tutor.'
+			]
 		).map(
 			(r) => (r.startsWith(' ') ? r : ' ' + r)
 		)
