@@ -1,6 +1,8 @@
 import { env } from '$env/dynamic/public';
 
-export const API_URL = env.PUBLIC_API_URL || 'http://localhost:8000';
+// Static SPA has no server, so PUBLIC_API_URL may be unset at runtime — fall
+// back to the production API. Override with PUBLIC_API_URL for local dev.
+export const API_URL = env.PUBLIC_API_URL || 'https://dash.lizzyman04.com';
 
 /** Build an absolute API URL. */
 export function apiUrl(path) {
