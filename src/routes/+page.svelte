@@ -38,7 +38,7 @@
 </script>
 
 <Loader />
-<LangSwitch />
+<LangSwitch hidden={menuOpen} />
 
 <Nav {menuOpen} onOpen={() => (menuOpen = true)} onClose={goHome} onSelect={selectSection} />
 

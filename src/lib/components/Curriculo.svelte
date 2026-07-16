@@ -62,9 +62,9 @@
 					{/if}
 					<ul class="content-follow">
 						<li><a href="https://github.com/Lizzyman04" class="github-link"><span class="css-icon github-icon"></span></a></li>
-						<li><a href="https://www.linkedin.com/in/arlindoabdul" class="linkedin-link" target="_blank"><span class="css-icon linkedin-icon"></span></a></li>
+						<li><a href="https://www.linkedin.com/in/lizzyman04" class="linkedin-link" target="_blank"><span class="css-icon linkedin-icon"></span></a></li>
 						<li><a href="https://tudocomlizzyman.com" class="blog-link"><span class="css-icon blog-icon"></span></a></li>
-						<li><a href="https://www.instagram.com/tudocomlizzyman" class="instagram-link" target="_blank"><span class="css-icon instagram-icon"></span></a></li>
+						<li><a href="https://www.instagram.com/lizzyman04" class="instagram-link" target="_blank"><span class="css-icon instagram-icon"></span></a></li>
 						<li><a href="https://wa.me/+258877603501" class="whatsapp-link" target="_blank"><span class="css-icon whatsapp-icon"></span></a></li>
 					</ul>
 				</div>

@@ -28,9 +28,9 @@
 	</div>
 	<div class="social-media-links">
 		<a href="https://github.com/Lizzyman04" class="github-link"><span class="css-icon github-icon"></span></a>
-		<a href="https://www.linkedin.com/in/arlindoabdul" class="linkedin-link" target="_blank"><span class="css-icon linkedin-icon"></span></a>
+		<a href="https://www.linkedin.com/in/lizzyman04" class="linkedin-link" target="_blank"><span class="css-icon linkedin-icon"></span></a>
 		<a href="https://tudocomlizzyman.com" class="blog-link"><span class="css-icon blog-icon"></span></a>
-		<a href="https://www.instagram.com/tudocomlizzyman" class="instagram-link" target="_blank"><span class="css-icon instagram-icon"></span></a>
+		<a href="https://www.instagram.com/lizzyman04" class="instagram-link" target="_blank"><span class="css-icon instagram-icon"></span></a>
 	</div>
 	<div class="hi-container">
 		<div class="hi">
