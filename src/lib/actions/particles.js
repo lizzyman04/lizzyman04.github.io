@@ -48,12 +48,13 @@ export function particles(node) {
 	import('particles.js')
 		.then(() => {
 			if (cancelled) return;
-			// Retry across a handful of frames until the container has a size.
+			// Retry until the container has a real size (timer, not rAF, so it also
+			// advances while the section is hidden / the tab is backgrounded).
 			let tries = 0;
 			(function attempt() {
 				if (cancelled || started) return;
 				start();
-				if (!started && tries++ < 120) requestAnimationFrame(attempt);
+				if (!started && tries++ < 150) setTimeout(attempt, 32);
 			})();
 			// Re-initialise if the container gets a size later (section toggled visible).
 			ro = new ResizeObserver(() => {
