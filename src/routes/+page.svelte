@@ -32,15 +32,30 @@
 		window.scrollTo({ top: 0 });
 	}
 
-	function goHome() {
+	function closeMenu() {
 		menuOpen = false;
+	}
+
+	function goHome() {
+		if (active === 'home') {
+			menuOpen = false;
+			window.scrollTo({ top: 0 });
+			return;
+		}
+		selectSection('home');
 	}
 </script>
 
 <Loader />
 <LangSwitch hidden={menuOpen} />
 
-<Nav {menuOpen} onOpen={() => (menuOpen = true)} onClose={goHome} onSelect={selectSection} />
+<Nav
+	{menuOpen}
+	onOpen={() => (menuOpen = true)}
+	onClose={closeMenu}
+	onHome={goHome}
+	onSelect={selectSection}
+/>
 
 <main>
 	{#if breakerOn}

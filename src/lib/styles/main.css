@@ -281,17 +281,7 @@ header {
 }
 
 .header .logo img:hover {
-    animation: logo_rotate 1.4s linear infinite;
-}
-
-@keyframes logo_rotate {
-    from {
-        transform: rotate(0deg) scale(1.05);
-    }
-
-    to {
-        transform: rotate(360deg) scale(1.05);
-    }
+    transform: scale(1.05);
 }
 
 .x-bar {

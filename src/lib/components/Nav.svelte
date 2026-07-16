@@ -1,7 +1,7 @@
 <script>
 	import { locale, t } from '$lib/i18n.js';
 
-	let { menuOpen = false, onOpen, onClose, onSelect } = $props();
+	let { menuOpen = false, onOpen, onClose, onSelect, onHome } = $props();
 
 	const items = [
 		{ id: 'about-me', key: 'nav.about' },
@@ -22,7 +22,7 @@
 
 <!-- Fullscreen overlay menu -->
 <div class="header" class:open={menuOpen}>
-	<div class="logo" onclick={onClose} role="button" tabindex="0" aria-label="Voltar ao início">
+	<div class="logo" onclick={onHome} role="button" tabindex="0" aria-label="Voltar ao início">
 		<img src="/img/favicon.ico" alt="" />
 	</div>
 	<div class="x-bar" onclick={onClose} role="button" tabindex="0" aria-label="Fechar menu">
