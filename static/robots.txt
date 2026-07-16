@@ -1,7 +1,4 @@
 User-agent: *
-Disallow: /assets/
+Allow: /
 
-Allow: /assets/img/introducing-myself.webp
-Allow: /assets/img/bg.webp
-
-Sitemap: https://me.tudocomlizzyman.com/sitemap.xml
+Sitemap: https://lizzyman04.com/sitemap.xml

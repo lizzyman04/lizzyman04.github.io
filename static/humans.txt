@@ -2,8 +2,8 @@
 
 /* TEAM */
 Developer: Arlindo Abdul
-Site: https://me.tudocomlizzyman.com
-Last update: 2024-08-12
+Site: https://lizzyman04.com
+Last update: 2026-07-16
 
 /* SITE */
-Technology Stack: HTML, CSS, JavaScript
+Technology Stack: Svelte, SvelteKit, Vite, JavaScript
