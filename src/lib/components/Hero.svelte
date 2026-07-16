@@ -13,7 +13,15 @@
 	// API roles are plain ("Freelancer."); keep the original leading-space spacing.
 	let prefix = $derived(pick(hero?.prefix, $locale) ?? 'Sou um');
 	let roles = $derived(
-		(pick(hero?.roles, $locale) ?? ['Freelancer.', 'Desenvolvedor.', 'Escritor.', 'Tutor.']).map(
+		(
+			pick(hero?.roles, $locale) ?? [
+				'Engenheiro de Software.',
+				'Arquiteto de Sistemas.',
+				'Freelancer.',
+				'Escritor.',
+				'Tutor.'
+			]
+		).map(
 			(r) => (r.startsWith(' ') ? r : ' ' + r)
 		)
 	);

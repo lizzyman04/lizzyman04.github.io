@@ -2,7 +2,7 @@
 
 # lizzyman04.com — Portfolio
 
-**The personal portfolio of Arlindo Abdul ([@lizzyman04](https://github.com/lizzyman04))** — a versatile freelancer working across writing, art and technology.
+**The personal portfolio of Arlindo Abdul ([@lizzyman04](https://github.com/lizzyman04))** — software engineer and systems architect, also freelancing across writing, art and technology.
 
 [![Live site](https://img.shields.io/badge/live-lizzyman04.com-04a777?style=flat-square)](https://lizzyman04.com)
 [![Deploy](https://img.shields.io/github/actions/workflow/status/lizzyman04/lizzyman04.github.io/deploy.yml?style=flat-square&label=pages%20deploy)](https://github.com/lizzyman04/lizzyman04.github.io/actions/workflows/deploy.yml)
