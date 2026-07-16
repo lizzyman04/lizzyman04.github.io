@@ -45,9 +45,32 @@ export function particles(node) {
 		started = false;
 	}
 
+	// particles.js v2 defines Object.deepExtend using `arguments.callee`, which is
+	// forbidden in strict mode. Bundlers load the library as an ES module (always
+	// strict), so pJS init throws a TypeError on every call and no particles render.
+	// Replace it with a strict-safe named-recursion version.
+	function patchDeepExtend() {
+		if (typeof Object.deepExtend === 'function' && !Object.deepExtend.__patched) {
+			const fixed = function de(destination, source) {
+				for (const p in source) {
+					if (source[p] && source[p].constructor === Object) {
+						destination[p] = destination[p] || {};
+						de(destination[p], source[p]);
+					} else {
+						destination[p] = source[p];
+					}
+				}
+				return destination;
+			};
+			fixed.__patched = true;
+			Object.deepExtend = fixed;
+		}
+	}
+
 	import('particles.js')
 		.then(() => {
 			if (cancelled) return;
+			patchDeepExtend();
 			// Retry until the container has a real size (timer, not rAF, so it also
 			// advances while the section is hidden / the tab is backgrounded).
 			let tries = 0;
