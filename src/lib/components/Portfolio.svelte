@@ -36,7 +36,7 @@
 			{/each}
 		</div>
 		<div class="portfolio-see-more">
-			<a href="https://github.com/Lizzyman04?tab=repositories" class="see-more-link" target="_blank" rel="noopener">{t('pf.seeMore', $locale)}</a>
+			<a href="https://github.com/lizzyman04?tab=repositories" class="see-more-link" target="_blank" rel="noopener">{t('pf.seeMore', $locale)}</a>
 		</div>
 	</div>
 </section>
