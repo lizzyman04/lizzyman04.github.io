@@ -1,8 +1,9 @@
 <div align="center">
 
-# lizzyman04.com — Portfolio
+# lizzyman04.com
 
-**The personal portfolio of Arlindo Abdul ([@lizzyman04](https://github.com/lizzyman04))** — software engineer and systems architect, also freelancing across writing, art and technology.
+**My first project as a programmer was a lightweight version of Simon, one of the most iconic games of the 80s.**
+**I learned HTML, CSS and JavaScript by building it — so it still ships here, in the corner of the page.**
 
 [![Live site](https://img.shields.io/badge/live-lizzyman04.com-04a777?style=flat-square)](https://lizzyman04.com)
 [![Deploy](https://img.shields.io/github/actions/workflow/status/lizzyman04/lizzyman04.github.io/deploy.yml?style=flat-square&label=pages%20deploy)](https://github.com/lizzyman04/lizzyman04.github.io/actions/workflows/deploy.yml)
@@ -15,47 +16,34 @@
 
 ---
 
-## Overview
+## The game came first
 
-A single-page portfolio built with **SvelteKit** and shipped as a static SPA on **GitHub Pages**. All content — hero, résumé, abilities, portfolio, introspections — is fetched at runtime from a **Laravel API** ([`lizzyman04-api`](https://github.com/lizzyman04)), so the site updates without a redeploy.
+I wasn't trying to learn web development. I was trying to make four coloured squares light up in the right order, and everything I know about the browser arrived as a side effect of that: the DOM, because the squares had to react; CSS, because they had to feel like buttons; audio, because a Simon without sound isn't Simon.
 
-## Features
+That original still exists — hand-written HTML, CSS, JS and four `.wav` files, in [`d20eb75`](https://github.com/lizzyman04/lizzyman04.github.io/commit/d20eb75), the first commit of what this repo used to be. The site grew over it rather than replacing it. The game is now a floating button that opens a playable toast, ported to a component but with the same rules, the same colours and the same four sounds.
 
-- 🌍 **Bilingual (PT / EN)** — full interface and content translation with a client-side language switch, persisted across visits.
-- 🧩 **API-driven content** — sections render from `GET /api/content`; nothing is hard-coded.
-- 📬 **Newsletter** — double opt-in subscription wired to the API.
-- 🎮 **Simon Says easter-egg** — the first thing I ever built in HTML/CSS/JS, preserved as a floating button that opens a playable toast without leaving the page. Its original source lives on in this repo's commit history.
-- ⚡ **Static & fast** — no server at the edge; hydrated in the browser and served from GitHub's CDN.
+Keeping it isn't nostalgia. It's the one part of the site I can't rewrite without noticing how differently I'd write it now, which makes it a better measure of progress than anything I could claim in a paragraph.
 
-## Tech stack
+## How I think about this codebase
 
-| Layer | Choice |
-|-------|--------|
-| Framework | SvelteKit 5 (runes) |
-| Build | Vite |
-| Adapter | `@sveltejs/adapter-static` (SPA fallback) |
-| Hosting | GitHub Pages + custom domain (`lizzyman04.com`) |
-| Content | Laravel REST API (`dash.lizzyman04.com`) |
-| i18n | Lightweight custom store (PT / EN) |
+**Content doesn't belong in the code.** Every section renders from `GET /api/content` at runtime. Editing a sentence shouldn't require a build, a commit and a deploy — three chances to break a site over one word. The tradeoff I accepted: the page is useless if the API is down. I'd rather own that failure than own a redeploy every time I change my mind.
 
-## The wider platform
+**Static until proven otherwise.** No server at the edge, no SSR, no runtime I have to keep alive. `adapter-static` with an SPA fallback, hydrated in the browser, served from a CDN. Fewer moving parts is a feature, and most portfolios are a server bill pretending to be an architecture.
 
-This repo is the public face of a three-part system:
+**Both languages, one payload.** PT and EN ship together and the client picks. A language switch that refetches is a language switch that can fail halfway; this one can't. It costs a slightly larger response, which is the cheapest thing I own.
 
-| Domain | Stack | Role |
-|--------|-------|------|
-| `lizzyman04.com` | SvelteKit (this repo) | Portfolio landing |
-| `dash.lizzyman04.com` | Laravel | Dashboard + REST API + newsletter |
-| `tudocomlizzyman.com` | Jekyll | Static blog (posts published via the API) |
+**Decisions get one home.** The cursor is declared once, with `!important`, on a wildcard. It used to live on `body` and get overridden in ten other places — `pointer` here, `not-allowed` there — with a scattering of `cursor: inherit` trying to claw it back, so it changed over links, buttons and disabled inputs. Anything meant to be invariant should be hard to override by accident, or it won't stay invariant.
 
-## Local development
+**Guard the real constraint, not the imagined one.** Text on this site is selectable. It wasn't for a long time, because `user-select: none` sat on `body` to make the page feel app-like — a rule that cost readers the ability to copy a paragraph in exchange for a feeling.
+
+## Running it
 
 ```bash
 npm install
 npm run dev        # http://localhost:5173
 ```
 
-Point the site at an API by setting `PUBLIC_API_URL` (defaults to the production API):
+Content is fetched from a live API, so the dev server works out of the box against production. Point it somewhere else with `PUBLIC_API_URL`:
 
 ```bash
 echo 'PUBLIC_API_URL=http://localhost:8000' > .env
@@ -63,18 +51,16 @@ echo 'PUBLIC_API_URL=http://localhost:8000' > .env
 
 ## Build & deploy
 
-Every push to `main` triggers [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml), which builds the static SPA (`npm run build`, baking in `PUBLIC_API_URL`) and publishes `build/` to GitHub Pages.
+Every push to `main` runs [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml), which builds the static SPA (baking in `PUBLIC_API_URL`) and publishes `build/` to GitHub Pages.
 
 ```bash
 npm run build      # outputs to build/
 ```
 
+## Credits
+
+Ability icons are [Phosphor Icons](https://phosphoricons.com) (MIT).
+
 ## License
 
 Released under the [MIT License](LICENSE).
-
----
-
-<div align="center">
-<sub>Find me at <a href="https://tudocomlizzyman.com">tudocomlizzyman.com</a> · <a href="https://www.linkedin.com/in/arlindoabdul">LinkedIn</a></sub>
-</div>
