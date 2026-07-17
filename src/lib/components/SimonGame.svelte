@@ -164,7 +164,7 @@
 		font-size: 24px;
 		line-height: 1;
 		color: #fff;
-		background: linear-gradient(135deg, #c70039, #035aa6);
+		background: #000;
 		box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28);
 		z-index: 1200;
 		transition: transform 0.25s ease, box-shadow 0.25s ease;
