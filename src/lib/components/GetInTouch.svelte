@@ -109,12 +109,12 @@
 				<form onsubmit={handleSubmit}>
 					<h4>{t('ct.leaveMessage', $locale)}</h4>
 					<div class="form-inner">
-						<input class="form-control form-45-control" type="text" name="name" placeholder={t('ct.name', $locale)} required />
-						<input class="form-control form-45-control" type="email" name="email" placeholder={t('ct.email', $locale)} required />
+						<input class="form-control form-45-control" type="text" name="name" autocomplete="name" placeholder={t('ct.name', $locale)} required />
+						<input class="form-control form-45-control" type="email" name="email" autocomplete="email" placeholder={t('ct.email', $locale)} required />
 						<input class="form-control form-100-control" type="text" name="subject" placeholder={t('ct.subject', $locale)} required />
 						<textarea class="form-control form-100-control" name="message" placeholder={t('ct.message', $locale)} rows="5" required></textarea>
 						<button class="form-submit {btnState}" type="submit" {disabled}>{btnText}</button>
-						<p class="contact-feedback {feedbackState}" style:display={feedback ? 'block' : 'none'}>{feedback}</p>
+						<p class="contact-feedback {feedbackState}" aria-live="polite" style:display={feedback ? 'block' : 'none'}>{feedback}</p>
 					</div>
 				</form>
 			</div>
@@ -170,6 +170,7 @@
 					class="form-control"
 					type="email"
 					name="email"
+					autocomplete="email"
 					placeholder={t('nl.placeholder', $locale)}
 					bind:value={subEmail}
 					required
@@ -185,32 +186,142 @@
 				/>
 				<button class="form-submit {subState}" type="submit" disabled={subDisabled}>{subBtn}</button>
 			</form>
-			<p class="contact-feedback {subState}" style:display={subMsg ? 'block' : 'none'}>{subMsg}</p>
+			<p class="contact-feedback {subState}" aria-live="polite" style:display={subMsg ? 'block' : 'none'}>{subMsg}</p>
 		</div>
 	</div>
 </section>
 
 <style>
 	.newsletter-section {
-		margin-top: 2rem;
+		margin-top: clamp(2.5rem, 6vw, 4rem);
+		padding: clamp(1.5rem, 4vw, 2.5rem);
+		border: 1px solid rgba(255, 255, 255, 0.08);
+		border-radius: 18px;
+		background-color: rgba(255, 255, 255, 0.02);
 		text-align: center;
 	}
+
+	.newsletter-section .info-desc {
+		font-size: 15px;
+		color: #9f9f9f;
+		max-width: 52ch;
+		margin: 0 auto;
+	}
+
 	.newsletter-form {
 		display: flex;
 		flex-wrap: wrap;
 		gap: 0.75rem;
 		justify-content: center;
-		max-width: 480px;
-		margin: 1rem auto 0;
+		max-width: 520px;
+		margin: 1.5rem auto 0;
 	}
+
 	.newsletter-form .form-control {
 		flex: 1 1 240px;
+		min-width: 0;
+		min-height: 48px;
+		padding: 12px 16px;
+		font-family: inherit;
+		font-size: 15px;
+		color: var(--whitesmoke-color);
+		background-color: rgba(255, 255, 255, 0.03);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		border-radius: 12px;
+		transition:
+			border-color 0.2s ease,
+			background-color 0.2s ease,
+			box-shadow 0.2s ease;
 	}
+
+	.newsletter-form .form-control::placeholder {
+		color: var(--lucky-grey-color);
+	}
+
+	.newsletter-form .form-control:hover {
+		border-color: rgba(255, 255, 255, 0.2);
+	}
+
+	.newsletter-form .form-control:focus {
+		outline: 0;
+		background-color: rgba(255, 255, 255, 0.05);
+		border-color: var(--section-alt-color);
+		box-shadow: 0 0 0 3px rgba(4, 167, 119, 0.18);
+	}
+
+	.newsletter-form .form-submit {
+		flex: 0 0 auto;
+		min-height: 48px;
+		padding: 12px 34px;
+		font-family: inherit;
+		font-size: 16px;
+		font-weight: 500;
+		color: #fff;
+		background-color: #009e66;
+		border: none;
+		border-radius: 30px;
+		cursor: inherit;
+		transition: all 0.4s ease-in-out;
+	}
+
+	.newsletter-form .form-submit:hover:not(:disabled) {
+		transform: scale(1.05);
+		filter: brightness(90%);
+	}
+
+	.newsletter-form .form-submit:focus-visible {
+		outline: 2px solid var(--section-alt-color);
+		outline-offset: 3px;
+	}
+
+	.newsletter-form .form-submit.wait {
+		background-color: #777;
+		cursor: not-allowed;
+	}
+
+	.newsletter-form .form-submit.success {
+		background-color: #28a745;
+	}
+
+	.newsletter-form .form-submit.error {
+		background-color: #dc3545;
+	}
+
+	.newsletter-section .contact-feedback {
+		margin-top: 1rem;
+		font-size: 15px;
+	}
+
+	.newsletter-section .contact-feedback.success {
+		color: #28a745;
+	}
+
+	.newsletter-section .contact-feedback.error {
+		color: #dc3545;
+	}
+
+	@media (max-width: 480px) {
+		.newsletter-form .form-control,
+		.newsletter-form .form-submit {
+			flex: 1 1 100%;
+		}
+	}
+
 	.newsletter-hp {
 		position: absolute;
 		left: -9999px;
 		width: 1px;
 		height: 1px;
 		opacity: 0;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.newsletter-form .form-submit {
+			transition: none;
+		}
+
+		.newsletter-form .form-submit:hover:not(:disabled) {
+			transform: none;
+		}
 	}
 </style>
