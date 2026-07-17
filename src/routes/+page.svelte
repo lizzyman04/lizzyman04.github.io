@@ -2,10 +2,10 @@
 	import Loader from '$lib/components/Loader.svelte';
 	import Nav from '$lib/components/Nav.svelte';
 	import Hero from '$lib/components/Hero.svelte';
-	import Curriculo from '$lib/components/Curriculo.svelte';
+	import Resume from '$lib/components/Resume.svelte';
 	import Portfolio from '$lib/components/Portfolio.svelte';
-	import Introspeccao from '$lib/components/Introspeccao.svelte';
-	import ConecteMe from '$lib/components/ConecteMe.svelte';
+	import Introspection from '$lib/components/Introspection.svelte';
+	import GetInTouch from '$lib/components/GetInTouch.svelte';
 	import LangSwitch from '$lib/components/LangSwitch.svelte';
 	import SimonGame from '$lib/components/SimonGame.svelte';
 
@@ -65,7 +65,7 @@
 	{/if}
 
 	<Hero visible={active === 'home'} hero={c.hero} />
-	<Curriculo
+	<Resume
 		visible={active === 'about-me'}
 		profile={c.profile}
 		abilities={c.abilities}
@@ -74,8 +74,8 @@
 		skills={c.skills}
 	/>
 	<Portfolio visible={active === 'portfolio'} projects={c.projects} />
-	<Introspeccao visible={active === 'introspection'} introspections={c.introspections} />
-	<ConecteMe visible={active === 'hire-me'} email={c.profile?.email} />
+	<Introspection visible={active === 'introspection'} introspections={c.introspections} />
+	<GetInTouch visible={active === 'hire-me'} email={c.profile?.email} />
 </main>
 
 <SimonGame />
