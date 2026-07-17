@@ -160,11 +160,10 @@
 		height: 56px;
 		border-radius: 50%;
 		border: none;
-		cursor: pointer;
 		font-size: 24px;
 		line-height: 1;
 		color: #fff;
-		background: #000;
+		background: #222;
 		box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28);
 		z-index: 1200;
 		transition: transform 0.25s ease, box-shadow 0.25s ease;
@@ -174,7 +173,7 @@
 		box-shadow: 0 10px 24px rgba(0, 0, 0, 0.34);
 	}
 	.simon-fab.open {
-		background: #222;
+		background: #333;
 		font-size: 26px;
 	}
 
@@ -207,7 +206,6 @@
 		background: none;
 		font-size: 22px;
 		line-height: 1;
-		cursor: pointer;
 		color: #888;
 	}
 	.simon-close:hover {
@@ -228,7 +226,6 @@
 	.simon-cell {
 		border: none;
 		border-radius: 10px;
-		cursor: pointer;
 		opacity: 0.7;
 		transition: all ease 0.35s;
 	}
@@ -268,7 +265,6 @@
 	.simon-start {
 		padding: 9px 20px;
 		font-size: 15px;
-		cursor: pointer;
 		background-color: #fff;
 		border: 1px solid #ddd;
 		border-radius: 6px;
@@ -280,7 +276,6 @@
 	}
 	.simon-start:disabled {
 		opacity: 0.6;
-		cursor: default;
 	}
 	.simon-msg {
 		margin: 10px 0 6px;
@@ -301,7 +296,6 @@
 	.simon-mute {
 		border: none;
 		background: none;
-		cursor: pointer;
 		color: #333;
 		width: 1.5em;
 		height: 1.5em;

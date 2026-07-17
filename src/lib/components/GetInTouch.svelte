@@ -260,7 +260,6 @@
 		background-color: #009e66;
 		border: none;
 		border-radius: 30px;
-		cursor: inherit;
 		transition: all 0.4s ease-in-out;
 	}
 
@@ -276,7 +275,6 @@
 
 	.newsletter-form .form-submit.wait {
 		background-color: #777;
-		cursor: not-allowed;
 	}
 
 	.newsletter-form .form-submit.success {

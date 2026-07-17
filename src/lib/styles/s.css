@@ -170,7 +170,6 @@
 
 .introducing-container .introducing-content .content-info .s-info a {
     color: var(--section-alt-color);
-    cursor: inherit;
     text-decoration: none;
     transition: all .3s ease-in-out;
 }
@@ -216,7 +215,6 @@
 .introducing-container .introducing-content .content-follow a {
     transition: all .3s ease-in-out;
     color: #cecece;
-    cursor: inherit;
 }
 
 .introducing-container .introducing-content .content-follow a:hover {
@@ -778,7 +776,6 @@
     padding: 10px 20px;
     margin: 10px;
     border: 1.5px solid var(--section-alt-color);
-    cursor: pointer;
     z-index: 3;
     position: relative;
     overflow: hidden;
@@ -874,7 +871,6 @@
     margin: 10px 20px;
     text-decoration: none;
     font-weight: 500;
-    cursor: inherit;
     font-size: 15.8px;
     border-radius: 5px;
     transition: all .8s ease;
@@ -1102,7 +1098,6 @@
     min-height: 48px;
     color: #fff;
     background-color: #009e66;
-    cursor: inherit;
     border: none;
     font-family: inherit;
     font-size: 16px;
@@ -1136,7 +1131,6 @@
 
 .contact-section .contact-form button.wait {
     background-color: #777 !important;
-    cursor: not-allowed;
 }
 
 .contact-section .contact-form button.success {
@@ -1231,7 +1225,6 @@
     transition: color .18s ease-in-out;
     color: #9f9f9f;
     text-decoration: none;
-    cursor: inherit;
 }
 
 .contact-section .contact-info .info-list .info-details .info-value a:focus,

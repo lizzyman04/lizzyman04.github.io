@@ -16,22 +16,38 @@
     --white-color: #fff;
     --lucky-grey-color: #777;
 
-    --cursor-32: url('/img/cursor-32.svg') 32 0, auto;
+    /* Fallback is `default`, not `auto`: Safari ignores SVG cursors, and `auto`
+       would let it swap to an I-beam over text. */
+    --cursor-32: url('/img/cursor-32.svg') 32 0, default;
 }
 
 /* Default behaviour (body, scroll, cursor, etc...) */
+
+/* The cursor never changes — not over links, buttons, text or disabled
+   controls. Single source of truth: `cursor` is inherited, but the wildcard
+   plus !important means a stray `cursor: pointer` in a component can't drift. */
+*,
+*::before,
+*::after {
+    cursor: var(--cursor-32) !important;
+}
+
+/* Content stays selectable; control labels don't, so double-clicking a button
+   doesn't highlight its text. */
+button,
+.css-icon {
+    user-select: none;
+}
 
 body,
 html {
     width: 100%;
     height: 100%;
-    cursor: var(--cursor-32);
 }
 
 body {
     width: 100%;
     height: auto;
-    user-select: none;
     overflow-x: hidden;
     background: var(--bg-color);
 }
@@ -336,7 +352,6 @@ header {
     border: none;
     font-weight: 700;
     letter-spacing: 1.6px;
-    cursor: var(--cursor-32);
 }
 
 .nav-me button:hover {
@@ -438,7 +453,6 @@ section.hero {
 
 .social-media-links a,
 .contact-links a {
-    cursor: var(--cursor-32);
     position: relative;
     display: inline-block;
     text-decoration: none;

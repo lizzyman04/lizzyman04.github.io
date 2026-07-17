@@ -42,7 +42,6 @@
 		font-size: 12px;
 		font-weight: 700;
 		letter-spacing: 0.04em;
-		cursor: pointer;
 		opacity: 0.7;
 		transition: background 0.2s, opacity 0.2s;
 	}
