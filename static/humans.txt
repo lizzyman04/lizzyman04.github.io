@@ -3,7 +3,10 @@
 /* TEAM */
 Developer: Arlindo Abdul
 Site: https://lizzyman04.com
-Last update: 2026-07-16
+Last update: 2026-07-17
 
 /* SITE */
 Technology Stack: Svelte, SvelteKit, Vite, JavaScript
+
+/* THANKS */
+Icons: Phosphor Icons (MIT) — https://phosphoricons.com
